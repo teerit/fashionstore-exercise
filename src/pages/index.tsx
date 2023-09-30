@@ -9,10 +9,10 @@ export default function Home() {
     <>
       <b>Instruction:</b> Open file <code>pages/index.jsx</code>
       {/* Uncomment the code below to start quiz */}
-      <Quiz1 />
+      {/* <Quiz1 /> */}
       {/* <Quiz2 /> */}
       {/* <Quiz3 /> */}
-      {/* <Quiz4 /> */}
+      <Quiz4 />
     </>
   );
 }

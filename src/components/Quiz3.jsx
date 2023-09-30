@@ -1,11 +1,9 @@
 const Child = () => {
-    return <p>Quiz 3 done</p>
-}
+  return <p>Quiz 3 done</p>;
+};
 
 const Quiz3 = () => {
-    return (
-        <child />
-    )
-}
+  return <Child />;
+};
 
-export default Quiz3
+export default Quiz3;
