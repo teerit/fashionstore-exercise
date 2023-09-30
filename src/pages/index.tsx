@@ -4,8 +4,10 @@ import ObjectRender from "@/components/ObjectRender";
 
 export default function Home() {
   return (
-    <PrimitiveRender />
-    // <ListRender />
-    // <ObjectRender />
+    <>
+      <PrimitiveRender />
+      <ListRender />
+      <ObjectRender />
+    </>
   );
 }
