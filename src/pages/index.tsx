@@ -1,19 +1,25 @@
 import ProductList from "@/components/ProductList";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 type Product = { name: string };
 
 const useProduct = (initialValue: Product[]) => {
   const [products, setProducts] = useState(initialValue);
-  const removeProduct = (name: string) => {
-    setProducts(products.filter((product) => name !== product.name));
-  };
+  const removeProduct = useMemo(
+    () => (name: string) => {
+      setProducts(products.filter((product) => name !== product.name));
+    },
+    [products]
+  );
 
-  const addProduct = (name: string) => {
-    setProducts([...products, { name }]);
-  };
+  const addProduct = useMemo(
+    () => (name: string) => {
+      setProducts([...products, { name }]);
+    },
+    [products]
+  );
 
-  return { products, addProduct, removeProduct };
+  return { products, removeProduct, addProduct };
 };
 
 export default function Home() {
