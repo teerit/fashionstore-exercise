@@ -54,14 +54,6 @@ export default function Home() {
     console.log(`add product:${productId} to the cart.`);
   };
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   fetchProducts(selectedCategory).then((productsResult) => {
-  //     setIsLoading(false);
-  //     setProducts(productsResult);
-  //   });
-  // }, [selectedCategory]);
-
   useEffect(() => {
     let isBind = false;
     setIsLoading(true);
@@ -75,6 +67,7 @@ export default function Home() {
       isBind = true
     }
   }, [selectedCategory]);
+
   return (
     <>
       <div className="flex gap-2">
