@@ -21,6 +21,9 @@ const TypingAnimation = ({ fullText, speed = 100 }: TypingAnimationProps) => {
         clearInterval(animKey);
       }
     }, speed);
+    return () => {
+      clearInterval(animKey);
+    };
   }, [fullText, speed]);
 
   return (
