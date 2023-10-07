@@ -1,12 +1,12 @@
 import ProductList from "@/components/ProductList";
 import { useState } from "react";
 
-export default function Home() {
-  const [productName, setProductName] = useState("");
-  const [products, setProducts] = useState([
-    { name: "Loose Cropped Jeans (Damaged)" },
-    { name: "Smart Skort Solid" },
-  ]);
+type Product = { name: string };
+
+// Custom React Hooks
+const useProduct = (initialValue: Product[]) => {
+  const [products, setProducts] = useState<Product[]>(initialValue);
+
   const onRemoveProduct = (name: string) => {
     setProducts(products.filter((product) => name !== product.name));
   };
@@ -14,6 +14,16 @@ export default function Home() {
   const onAddProduct = (name: string) => {
     setProducts([...products, { name }]);
   };
+
+  return { products, onAddProduct, onRemoveProduct };
+};
+
+export default function Home() {
+  const [productName, setProductName] = useState("");
+  const { products, onAddProduct, onRemoveProduct } = useProduct([
+    { name: "Loose Cropped Jeans (Damaged)" },
+    { name: "Smart Skort Solid" },
+  ]);
 
   return (
     <>
