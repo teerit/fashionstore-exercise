@@ -54,12 +54,26 @@ export default function Home() {
     console.log(`add product:${productId} to the cart.`);
   };
 
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   fetchProducts(selectedCategory).then((productsResult) => {
+  //     setIsLoading(false);
+  //     setProducts(productsResult);
+  //   });
+  // }, [selectedCategory]);
+
   useEffect(() => {
+    let isBind = false;
     setIsLoading(true);
     fetchProducts(selectedCategory).then((productsResult) => {
-      setIsLoading(false);
-      setProducts(productsResult);
+      if (!isBind) {
+        setIsLoading(false);
+        setProducts(productsResult);
+      }
     });
+    return () => {
+      isBind = true
+    }
   }, [selectedCategory]);
   return (
     <>
